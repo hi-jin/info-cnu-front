@@ -28,7 +28,8 @@ getLinks:function(data) {
     links += `
     <li class="list-group-item d-flex justify-content-between align-items-start">
       <div class="ms-2 me-auto">
-        <div class="fw-bold">${data[i]["title"]}</div>
+        <div class="fw-bold"><a style="color: black; text-decoration: none;" href="${data[i]["link"]}">${data[i]["title"]}</a></div>
+        ${data[i]["date"]}
       </div>
       <span class="badge bg-primary rounded-pill">${data[i]["type"]}</span>
     </li>`;

@@ -12,12 +12,16 @@ app.get('/cseInfo', (req, res) => {
       let data = response.data;
 
       for (var i = 0; i < data.length; i++) {
-        data[i]["date"] = Date.parse(data[i]["date"]);
+        data[i]["date"] = new Date(data[i]["date"]);
       }
 
       data.sort((a, b) => {
         return b["date"] - a["date"];
       });
+
+      for (var i = 0; i < data.length; i++) {
+        data[i]["date"] = data[i]["date"].toDateString();
+      }
 
       var links = template.getLinks(data);
       res.send(template.html(links));
